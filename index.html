@@ -579,15 +579,17 @@ Add the correct vertical alignment in Chrome and Firefox.
             margin-left: auto;
             margin-right: auto;
         }
-        @media print {
-            body {
-                zoom: 100%;
-            }
 }
         .space-y-1> :not([hidden])~ :not([hidden]) {
             --tw-space-y-reverse: 0;
             margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
             margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+        }
+        @media print{
+            #body{
+                zoom:100%;
+            }
+            
         }
     </style>
 </head>
@@ -597,7 +599,7 @@ Add the correct vertical alignment in Chrome and Firefox.
     <div class="zoom bg-black flex flex-col" id="btn">
 
         <div class="float-button">
-            <button id="button" onclick="printDiv()"> <i class="fa fa-download fa-lg"  style="color: aliceblue;" aria-hidden="true" ></i></button>
+            <button id="button" onclick="window.print()"> <i class="fa fa-download fa-lg"  style="color: aliceblue;" aria-hidden="true" ></i></button>
         </div>
     </div>
 
@@ -719,17 +721,6 @@ Add the correct vertical alignment in Chrome and Firefox.
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-             <script>
-        function printDiv() {
-            var divContents = document.getElementById("body").innerHTML;
-            var a = window.open('', '', 'height=500, width=500');
-            a.document.write(divContents);
-            a.document.write('</style></body></html>');
-            a.document.close();
-            a.print(divContents);
-        }
-    </script>
 </body>
 
 </html>
